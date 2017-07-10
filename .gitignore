@@ -1,8 +1,15 @@
 # Compiled class file
 *.class
 
-# Log file
-*.log
+# Eclipse
+.classpath
+.settings
+.project
+
+# Intellij
+.idea/
+*.iml
+*.iws
 
 # BlueJ files
 *.ctxt
@@ -18,5 +25,16 @@
 *.tar.gz
 *.rar
 
+# Maven
+target
+*.log
+*.log.*
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Mac
+.DS_Store
+
+# Alfresco
+alf_data_dev/

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>firehose-extension-platform-jar</artifactId>
+    <name>Firehose Extension Repository Module</name>
+    <description>Firehose Extension Repository Module</description>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>org.alfresco</groupId>
+        <artifactId>firehose-extension</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.gytheio</groupId>
+            <artifactId>gytheio-messaging-camel</artifactId>
+            <version>0.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring</artifactId>
+            <version>2.13.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-aws</artifactId>
+            <version>2.19.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>org.apache.camel:camel-core:jar:</exclude>
+                                    <exclude>joda-time:joda-time:jar:</exclude>
+                                    <exclude>commons-logging:commons-logging:jar:</exclude>
+                                    <exclude>commons-codec:commons-codec:jar:</exclude>
+                                    <exclude>org.slf4j:slf4j-api:jar:</exclude>
+                                    <exclude>com.fasterxml.jackson.core:jackson-core:jar:</exclude>
+                                    <exclude>com.fasterxml.jackson.core:jackson-annotations:jar:</exclude>
+                                    <exclude>com.sun.xml.bind:jaxb-core:jar:</exclude>
+                                    <exclude>com.sun.xml.bind:jaxb-impl:jar:</exclude>
+                                    <exclude>javax.activation:activation:jar:</exclude>
+                                </excludes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

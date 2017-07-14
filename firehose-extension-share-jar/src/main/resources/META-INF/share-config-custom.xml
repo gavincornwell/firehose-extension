@@ -1,6 +1,9 @@
 <alfresco-config>
 
     <config evaluator="string-compare" condition="DocumentLibrary">
+
+        <!-- TODO: add missing aspect config -->
+
         <types>
             <!-- Define the ACME claim image type as decedent from cm:content -->
             <type name="cm:content">

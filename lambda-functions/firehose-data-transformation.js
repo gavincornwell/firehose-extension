@@ -1,3 +1,5 @@
+'use strict';
+
 exports.handler = (event, context, callback) => {
 
     console.log("event: " + JSON.stringify(event, null, 2));
@@ -14,7 +16,7 @@ exports.handler = (event, context, callback) => {
 
         if (decodedDataObj.type == "NODEADDED" &&
             decodedDataObj.nodeType == "cm:content" &&
-            decodedDataObj.name.endsWith(".jpg")) {
+            (decodedDataObj.name.endsWith(".jpg")||decodedDataObj.name.endsWith(".png"))) {
             result = "Ok";
             console.log("Accepted record " + record.recordId);
         } else {

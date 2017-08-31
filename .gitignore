@@ -38,3 +38,6 @@ hs_err_pid*
 
 # Alfresco
 alf_data_dev/
+
+# Node.js
+lambda-functions/node_modules/

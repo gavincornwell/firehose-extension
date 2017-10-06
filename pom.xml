@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.alfresco</groupId>
     <artifactId>firehose-extension</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <name>AIO - SDK 3.0</name>
     <description>All-In-One (AIO) project for SDK 3.0</description>
     <packaging>pom</packaging>

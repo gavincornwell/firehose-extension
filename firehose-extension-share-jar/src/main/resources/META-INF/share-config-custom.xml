@@ -2,16 +2,6 @@
 
     <config evaluator="string-compare" condition="DocumentLibrary">
 
-        <aspects>
-            <visible>
-                <aspect name="acme:missingClaimTypeProperty"/>
-            </visible>
-            <addable> <!-- defaults to visible config -->
-            </addable>
-            <removeable> <!-- defaults to visible config -->
-            </removeable>
-        </aspects>
-
         <types>
             <!-- Define the ACME claim image type as decedent from cm:content -->
             <type name="cm:content">
@@ -63,6 +53,10 @@
 
                     <!-- ACME custom props -->
                     <show id="acme:imageId" force="true"/>
+                    <show id="acme:claimNumber" force="true"/>
+                    <show id="acme:insuranceNumber" force="true"/>
+                    <show id="acme:claimDate" force="true"/>
+                    <show id="acme:insuredName" force="true"/>
                     <show id="acme:claimType" force="true"/>
                 </field-visibility>
             </form>
@@ -76,6 +70,10 @@
 
                     <!-- ACME custom props -->
                     <show id="acme:imageId" force="true"/>
+                    <show id="acme:claimNumber" force="true"/>
+                    <show id="acme:insuranceNumber" force="true"/>
+                    <show id="acme:claimDate" force="true"/>
+                    <show id="acme:insuredName" force="true"/>
                     <show id="acme:claimType" force="true"/>
                 </field-visibility>
             </form>

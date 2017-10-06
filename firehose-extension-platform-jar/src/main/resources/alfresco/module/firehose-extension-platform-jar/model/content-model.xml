@@ -26,7 +26,16 @@
                 <list>
                     <value>Car</value>
                     <value>Motorcycle</value>
+                    <value>Boat</value>
+                    <value>Electronics</value>
+                    <value>Jewelry</value>
+                    <value>Wristwatch</value>
+                    <value>Clock</value>
+                    <value>Jewelry</value>
                     <value>Bicycle</value>
+                    <value>Sport</value>
+                    <value>Furniture</value>
+                    <value>Unknown</value>
                 </list>
             </parameter>
         </constraint>
@@ -47,6 +56,22 @@
                     <type>d:text</type>
                     <mandatory>true</mandatory>
                 </property>
+                <property name="acme:claimNumber">
+                    <title>Claim Number</title>
+                    <type>d:long</type>
+                </property>
+                <property name="acme:insuranceNumber">
+                    <title>Insurance Number</title>
+                    <type>d:long</type>
+                </property>
+                <property name="acme:claimDate">
+                    <title>Claim Date</title>
+                    <type>d:date</type>
+                </property>
+                <property name="acme:insuredName">
+                    <title>Insured Name</title>
+                    <type>d:text</type>
+                </property>
                 <property name="acme:claimType">
                     <title>Claim Type</title>
                     <type>d:text</type>
@@ -62,13 +87,5 @@
             </properties>
         </type>
     </types>
-
-    <aspects>
-        <!-- Marker aspect applied to insurance claim image nodes without a claim type property -->
-        <aspect name="acme:missingClaimTypeProperty">
-            <title>Missing Claim Type</title>
-            <description>The insurance claim image does not have a claim type set</description>
-        </aspect>
-    </aspects>
 
 </model>

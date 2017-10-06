@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.alfresco</groupId>
         <artifactId>firehose-extension</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
     <properties>

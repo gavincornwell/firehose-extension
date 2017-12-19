@@ -52,7 +52,7 @@ public class FirehoseExtensionContentModelIT extends AbstractAlfrescoIT {
     private static final String ACME_MODEL_NS = "{http://www.acme.org/model/content/1.0}";
     private static final String ACME_MODEL_LOCALNAME = "contentModel";
     private static final String ACME_TYPE_CLAIM_IMAGE = "insuranceClaimImage";
-    private static final String ACME_ASPECT_MISSING_PROPERTY = "missingClaimTypeProperty";
+    private static final String ACME_TYPE_CLAIM_REPORT = "insuranceClaimReport";
 
     @Test
     public void testCustomContentModelPresence() {
@@ -65,17 +65,17 @@ public class FirehoseExtensionContentModelIT extends AbstractAlfrescoIT {
         assertTrue("Custom content model " + customContentModelQName.toString() +
                 " is not present", allContentModels.contains(customContentModelQName));
 
-        System.out.println("checking type...");
-        // check type is present
+        System.out.println("checking image type...");
+        // check image type is present
         QName claimImageType = createQName(ACME_TYPE_CLAIM_IMAGE);
         assertNotNull("'claimImageType' type is not present",
                 dictionaryService.getType(claimImageType));
 
-        System.out.println("checking aspect...");
-        // check aspect is present
-        QName missingAspect = createQName(ACME_ASPECT_MISSING_PROPERTY);
-        assertNotNull("'missingClaimTypeProperty' aspect is not present",
-                dictionaryService.getAspect(missingAspect));
+        System.out.println("checking report type...");
+        // check report type is present
+        QName claimReportType = createQName(ACME_TYPE_CLAIM_REPORT);
+        assertNotNull("'claimReportType' type is not present",
+                dictionaryService.getType(claimReportType));
     }
 
     /**

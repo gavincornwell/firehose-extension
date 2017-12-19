@@ -3,9 +3,10 @@
     <config evaluator="string-compare" condition="DocumentLibrary">
 
         <types>
-            <!-- Define the ACME claim image type as decedent from cm:content -->
+            <!-- Define the ACME claim image types as a decedent from cm:content -->
             <type name="cm:content">
                 <subtype name="acme:insuranceClaimImage"/>
+                <subtype name="acme:insuranceClaimReport"/>
             </type>
         </types>
     </config>
@@ -75,6 +76,65 @@
                     <show id="acme:claimNumber" force="true"/>
                     <show id="acme:claimDate" force="true"/>
                     <show id="acme:claimType" force="true"/>
+                </field-visibility>
+            </form>
+        </forms>
+    </config>
+    
+    <!-- View and Edit forms for acme:insuranceClaimReport -->
+    <config evaluator="node-type" condition="acme:insuranceClaimReport">
+        <forms>
+            <form>
+                <field-visibility>
+                    <!-- default fields -->
+                    <show id="cm:name"/>
+                    <show id="cm:title" force="true"/>
+                    <show id="cm:description" force="true"/>
+                    <show id="mimetype"/>
+                    <show id="cm:author" force="true"/>
+                    <show id="size" for-mode="view"/>
+                    <show id="cm:creator" for-mode="view"/>
+                    <show id="cm:created" for-mode="view"/>
+                    <show id="cm:modifier" for-mode="view"/>
+                    <show id="cm:modified" for-mode="view"/>
+
+                    <!-- tags -->
+                    <show id="cm:taggable" for-mode="edit" force="true"/>
+
+                    <!-- cm:geographic aspect -->
+                    <show id="cm:latitude"/>
+                    <show id="cm:longitude"/>
+
+                    <!-- ACME custom props -->
+                    <show id="acme:reportId" force="true"/>
+                    <show id="acme:insuranceNumber" force="true"/>
+                    <show id="acme:insuredName" force="true"/>
+                    <show id="acme:claimNumber" force="true"/>
+                    <show id="acme:claimDate" force="true"/>
+                    <show id="acme:claimAdjuster" force="true"/>
+                    <show id="acme:visitDate" force="true"/>
+                    <show id="acme:visitLocation" force="true"/>
+                    <show id="acme:visitFollowUp" force="true"/>
+                </field-visibility>
+            </form>
+
+            <!-- Document Library pop-up Edit Metadata form -->
+            <form id="doclib-simple-metadata">
+                <field-visibility>
+                    <show id="cm:name"/>
+                    <show id="cm:title" force="true"/>
+                    <show id="cm:description" force="true"/>
+
+                    <!-- ACME custom props -->
+                    <show id="acme:reportId" force="true"/>
+                    <show id="acme:insuranceNumber" force="true"/>
+                    <show id="acme:insuredName" force="true"/>
+                    <show id="acme:claimNumber" force="true"/>
+                    <show id="acme:claimDate" force="true"/>
+                    <show id="acme:claimAdjuster" force="true"/>
+                    <show id="acme:visitDate" force="true"/>
+                    <show id="acme:visitLocation" force="true"/>
+                    <show id="acme:visitFollowUp" force="true"/>
                 </field-visibility>
             </form>
         </forms>

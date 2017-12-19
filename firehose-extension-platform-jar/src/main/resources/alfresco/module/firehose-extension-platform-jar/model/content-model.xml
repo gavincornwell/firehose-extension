@@ -41,36 +41,40 @@
         </constraint>
     </constraints>
 
-    <!-- ===============================================================================================================
-        Constraints, Types, and Aspects go here...
-        -->
-
     <types>
-        <!-- Type to represent insurance claim images -->
-        <type name="acme:insuranceClaimImage">
-            <title>Insurance Claim Image</title>
+        <!-- Base type of insurance claim types -->
+        <type name="acme:insuranceClaimBase">
+            <title>Insurance Claim Base Type</title>
             <parent>cm:content</parent>
             <properties>
-                <property name="acme:imageId">
-                    <title>Image Identification Number</title>
-                    <type>d:text</type>
-                    <mandatory>true</mandatory>
-                </property>
                 <property name="acme:claimNumber">
                     <title>Claim Number</title>
-                    <type>d:long</type>
-                </property>
-                <property name="acme:insuranceNumber">
-                    <title>Insurance Number</title>
                     <type>d:long</type>
                 </property>
                 <property name="acme:claimDate">
                     <title>Claim Date</title>
                     <type>d:date</type>
                 </property>
+                <property name="acme:insuranceNumber">
+                    <title>Insurance Number</title>
+                    <type>d:long</type>
+                </property>
                 <property name="acme:insuredName">
                     <title>Insured Name</title>
                     <type>d:text</type>
+                </property>
+            </properties>
+        </type>
+    
+        <!-- Type to represent insurance claim images -->
+        <type name="acme:insuranceClaimImage">
+            <title>Insurance Claim Image</title>
+            <parent>acme:insuranceClaimBase</parent>
+            <properties>
+                <property name="acme:imageId">
+                    <title>Image Identification Number</title>
+                    <type>d:text</type>
+                    <mandatory>true</mandatory>
                 </property>
                 <property name="acme:claimType">
                     <title>Claim Type</title>
@@ -83,6 +87,35 @@
                     <constraints>
                         <constraint ref="acme:claimTypeOptions"/>
                     </constraints>
+                </property>
+            </properties>
+        </type>
+        
+        <!-- Type to represent insurance claim reports -->
+        <type name="acme:insuranceClaimReport">
+            <title>Insurance Claim Report</title>
+            <parent>acme:insuranceClaimBase</parent>
+            <properties>
+                <property name="acme:reportId">
+                    <title>Report Identification Number</title>
+                    <type>d:text</type>
+                    <mandatory>true</mandatory>
+                </property>
+                <property name="acme:claimAdjuster">
+                    <title>Claim Adjuster</title>
+                    <type>d:text</type>
+                </property>
+                <property name="acme:visitDate">
+                    <title>Visit Date</title>
+                    <type>d:date</type>
+                </property>
+                <property name="acme:visitLocation">
+                    <title>Visit Location</title>
+                    <type>d:text</type>
+                </property>
+                <property name="acme:visitFollowUp">
+                    <title>Follow Up Visit Required</title>
+                    <type>d:boolean</type>
                 </property>
             </properties>
         </type>
